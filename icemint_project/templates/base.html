@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>
+      FBP -
+      {% block title %}
+      Main
+      {% endblock %}
+    </title>
+
+    <link href='{% static "libs/css/bootstrap.min.css" %}' rel="stylesheet">
+    <link href='{% static "blog/blog.css" %}' rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <main role="main" class="container">
+      <h1 class="mt-5">Facepalm Blogging Platform</h1>
+      <p>Strange posts factory.</p>
+      <a href="{% url 'blog:users-list' %}">All users</a> |
+      <a href="{% url 'blog:post-create' %}">Create post</a>
+      <hr>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">With love for Icemint ^_^</span>
+      </div>
+    </footer>
+  </body>
+
+</html>

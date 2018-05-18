@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All users
+{% endblock %}
+
+{% block content %}
+  <div class="list-group">
+    {% for user in object_list %}
+      <a href="{% url 'blog:posts-list' user.id %}" class="list-group-item list-group-item-action">{{ user }}</a>
+    {% endfor %}
+  </div>
+{% endblock %}

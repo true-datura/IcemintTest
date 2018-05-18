@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Post #{{ object.id}}
+{% endblock %}
+
+{% block content %}
+  <h2>{{ object.title }}</h2>
+  <h6 class="text-muted">{{ post.created }}</h6>
+  <p>{{ object.text|linebreaks }}</p>
+  <h6 class="text-muted">Author: {{ object.author }}</h6>
+  {% if not post.published %}
+    <div class="alert alert-danger" role="alert">
+      Not published.
+    </div>
+  {% endif %}
+  {% if request.user.id == object.author.id %}
+    <a href="{% url 'blog:post-update' object.id %}" class="btn btn-lg btn-primary">Edit</a>
+  {% endif %}
+{% endblock %}
